@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+    <h2>Book Appointment</h2>
+    <form method="post">
+        <label for="doctor_name">Doctor</label>
+        <select id="doctor_name" name="doctor_name">
+            <option value="Dr. Smith">Dr. Smith</option>
+            <option value="Dr. Jones">Dr. Jones</option>
+        </select>
+        
+        <label for="time_slot">Time Slot</label>
+        <select id="time_slot" name="time_slot">
+            <option value="10:00 AM">10:00 AM</option>
+            <option value="11:00 AM">11:00 AM</option>
+        </select>
+        
+        <label for="patient_name">Patient Name</label>
+        <input type="text" id="patient_name" name="patient_name" required>
+        
+        <button type="submit" class="btn">Book</button>
+    </form>
+{% endblock %}

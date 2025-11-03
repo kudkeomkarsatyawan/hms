@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block content %}
+    <h1>Dashboard</h1>
+    <a href="{{ url_for('register_patient') }}" class="btn">Register Patient</a>
+    <a href="{{ url_for('book_appointment') }}" class="btn">Book Appointment</a>
+    <a href="{{ url_for('generate_bill') }}" class="btn">Generate Bill</a>
+
+    <hr>
+    <h2>Search Patient</h2>
+    <form action="{{ url_for('search_patient') }}" method="post">
+        <input type="text" name="patient_id" placeholder="Enter Patient ID">
+        <button type="submit" class="btn">Search</button>
+    </form>
+
+    <hr>
+    <h2>All Patients</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Contact</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for patient in patients %}
+            <tr>
+                <td>{{ patient.id }}</td>
+                <td>{{ patient.name }}</td>
+                <td>{{ patient.contact }}</td>
+                <td>
+                    <a href="{{ url_for('update_patient', patient_id=patient.id) }}" class="btn">Update</a>
+                    <form action="{{ url_for('delete_patient', patient_id=patient.id) }}" method="post" style="display:inline;">
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

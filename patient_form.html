@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+    <h2>{% if patient %}Update Patient{% else %}Register Patient{% endif %}</h2>
+    <form method="post">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" value="{{ patient.name if patient else '' }}" required>
+        
+        <label for="age">Age</label>
+        <input type="number" id="age" name="age" value="{{ patient.age if patient else '' }}" required>
+        
+        <label for="gender">Gender</label>
+        <input type="text" id="gender" name="gender" value="{{ patient.gender if patient else '' }}" required>
+        
+        <label for="contact">Contact</label>
+        <input type="text" id="contact" name="contact" value="{{ patient.contact if patient else '' }}" required>
+        
+        <button type="submit" class="btn">Save</button>
+    </form>
+{% endblock %}
