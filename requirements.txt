@@ -1,0 +1,6 @@
+Flask
+Flask-SQLAlchemy
+selenium
+webdriver-manager
+pytest
+pytest-html
